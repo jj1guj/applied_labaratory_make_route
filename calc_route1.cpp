@@ -1,11 +1,6 @@
-#include<iostream>
-#include<iomanip>
-#include<fstream>
-#include<cmath>
-#include<string>
-using namespace std;
+#include "calc_route.hpp"
 
-int main(){
+void calc_route1(){
     double sx,sy,ex,ey,x,y,deg1,deg2;
     double xt0,xt1,xt2,xt3,yt0,yt1,yt2,yt3;
     double t0,t1,t2,t3,t; //t0: 加速終了時刻, t1: 減速開始時刻
@@ -78,7 +73,7 @@ int main(){
             y=yt3+0.5*(sy-ey)/(t3-t0-t1)*(t2-t0-t1-(t3+t2-t0-t1-t)*(t3+t2-t0-t1-t)/(t2-t0-t1));
         }
         d1=(atan2(y,x)-acos((x*x+y*y+L1*L1-L2*L2)/(2*sqrt(x*x+y*y)*L1)))*180/M_PI;
-        d2=180-180/M_PI*acos((L1*L1+L2*L2-x*x-y*y)/(2*L1*L2));
+        d2=270-180/M_PI*acos((L1*L1+L2*L2-x*x-y*y)/(2*L1*L2));
 
         write_deg1<<t<<","<<fixed<<setprecision(5)<<d1<<endl;
         write_deg2<<t<<","<<fixed<<setprecision(5)<<d2<<endl;
