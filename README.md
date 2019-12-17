@@ -14,6 +14,8 @@ Windowsだと文字化けします
  例のように入力するとデスクトップ上にoutput_deg.csv、output_deg1.csv、output_deg2.csvというファイルが生成されます。  
   \_deg.csvは実機用で、\_deg1.csv及び  \_deg2.csvはSolidWorksでのモーション解析用です。  
     \_deg1.csvはθ1、\_deg2.csvはθ2の出力ファイルです。  
+## ビルド
+g++ -Ofast -o hoge \*.cpp \*.hpp   
 ## 座標等定義
-座標等の定義はしたの図の通りです。  
+座標等の定義は下の図の通りです。  
 ![座標系等定義](https://user-images.githubusercontent.com/57407826/70992095-3cb46180-210c-11ea-89bb-fb063a3ec047.jpg)
