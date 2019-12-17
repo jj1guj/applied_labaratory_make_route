@@ -14,3 +14,5 @@ Windowsだと文字化けします
  例(デスクトップ上にoutputという名前で出力する場合): /Users/\[ユーザー名\]/Desktop/output  
  例のように入力するとデスクトップ上にoutput_deg1.csv、output_deg2.csvというファイルが生成されます。  
   \_deg1.csvはθ1、\_deg2.csvはθ2の出力ファイルです。  
+## 座標等定義
+座標等の定義は以下の図の通りです。  
