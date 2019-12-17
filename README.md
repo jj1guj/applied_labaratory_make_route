@@ -4,7 +4,7 @@
 Windowsだと文字化けします
 ## 使い方
 1 ターミナルを開き、プログラムが入っているディレクトリ直下に移動する  
-2 ./calc_route  
+2 `./calc_route` と入力して実行する   
 3 ターミナルの表示に従って数値を入力する
 ## 使用上の注意
 ・時刻の単位はすべて秒、長さ・座標の単位はすべてmmです。小数点以下第2位まで指定可能です  
@@ -15,7 +15,7 @@ Windowsだと文字化けします
   \_deg.csvは実機用で、\_deg1.csv及び  \_deg2.csvはSolidWorksでのモーション解析用です。  
     \_deg1.csvはθ1、\_deg2.csvはθ2の出力ファイルです。  
 ## ビルド
-g++ -Ofast -o hoge \*.cpp \*.hpp   
+`g++ -Ofast -o hoge \*.cpp \*.hpp`   
 ## 座標等定義
 座標等の定義は下の図の通りです。  
 ![座標系等定義](https://user-images.githubusercontent.com/57407826/70992095-3cb46180-210c-11ea-89bb-fb063a3ec047.jpg)
