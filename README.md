@@ -15,7 +15,7 @@ Windowsだと文字化けします
   \_deg.csvは実機用で、\_deg1.csv及び  \_deg2.csvはSolidWorksでのモーション解析用です。  
     \_deg1.csvはθ1、\_deg2.csvはθ2の出力ファイルです。  
 ## ビルド
-`g++ -Ofast -o hoge \*.cpp \*.hpp`   
+`g++ -Ofast -o hoge *.cpp *.hpp`   
 `./hoge`
 ## 座標等定義
 座標等の定義は下の図の通りです。  
