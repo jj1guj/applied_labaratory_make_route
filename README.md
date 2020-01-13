@@ -42,4 +42,8 @@ Windowsだと文字化けします
 `./hoge`
 ## 座標等定義
 座標等の定義は下の図の通りです。  
-![座標系等定義](https://user-images.githubusercontent.com/57407826/70992095-3cb46180-210c-11ea-89bb-fb063a3ec047.jpg)
+![座標系等定義](https://user-images.githubusercontent.com/57407826/70992095-3cb46180-210c-11ea-89bb-fb063a3ec047.jpg)  
+## Tips的な、ステマ的な何か
+動作原理等詳細はこちらで解説しています。  
+よろしければ併せてお読みください。  
+https://jj1guj.hatenablog.com/entry/2019/12/18/162451
