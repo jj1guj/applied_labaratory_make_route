@@ -7,7 +7,7 @@ using namespace std;
 
 #define dir1 1
 #define dir2 1
-#define dt 0.02
+#define dt 0.01
 
 #pragma once
 
