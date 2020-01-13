@@ -9,8 +9,8 @@ Windowsだと文字化けします
 
 ## 使い方(実機)
 1 decide_dir.csvを実機に読み込ませ、動かす  
-2 calc_route.hppを以下のように書き換える
-  `#define dt 0.02`
+2 calc_route.hppを以下のように書き換える  
+  `#define dt 0.02`  
 3 実機の回転方向に応じてcalc_route.hppを以下のように書き換える  
   リンク1が時計回り、リンク2が反時計回りのとき  
   `#define dir1 1`  
