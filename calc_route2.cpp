@@ -11,6 +11,7 @@ void calc_route2(){
     int i,i_finish;
     double L1,L2;
     double d1,d2;
+    int flg;
     string output_path;
 
     //write_deg: 実機用
@@ -62,12 +63,13 @@ void calc_route2(){
 
     for(i=0;i<=i_finish;i++){
         t=(double)i*dt;
+        flg=0;
         //スタート~第1コーナー
         //スタート~第1コーナー加速
         if(t<=T[0]){
             x=C[0][0]+(C[1][0]-C[0][0])/T[0]/T[1]/2*t*t;
             y=C[0][1]+(C[1][1]-C[0][1])/T[0]/T[1]/2*t*t;
-            if(t==T[0]){
+            if(fabs(t-T[0])<dt){
                 xt=x;
                 yt=y;
             }
@@ -76,7 +78,7 @@ void calc_route2(){
         }else if(t<=T[1]){
             x=xt+(C[1][0]-C[0][0])/T[1]*(t-T[0]);
             y=yt+(C[1][1]-C[0][1])/T[1]*(t-T[0]);
-            if(t==T[1]){
+            if(fabs(t-T[1])<dt){
                 xt=x;
                 yt=y;
             }
@@ -85,7 +87,7 @@ void calc_route2(){
         }else if(t<=T[0]+T[1]){
             x=xt+0.5*(C[1][0]-C[0][0])/T[1]*(T[0]-(T[1]+T[0]-t)*(T[1]+T[0]-t)/T[0]);
             y=yt+0.5*(C[1][1]-C[0][1])/T[1]*(T[0]-(T[1]+T[0]-t)*(T[1]+T[0]-t)/T[0]);
-            if(t==T[0]+T[1]){
+            if(fabs(t-T[0]-T[1])<dt){
                 xt=x;
                 yt=y;
             }
@@ -96,7 +98,7 @@ void calc_route2(){
             if(t<=T[2]){
                 x=C[1][0]+(C[2][0]-C[1][0])/T[2]/T[3]/2*t*t;
                 y=C[1][1]+(C[2][1]-C[1][1])/T[2]/T[3]/2*t*t;
-                if(t==T[2]){
+                if(fabs(t-T[2])<dt){
                     xt=x;
                     yt=y;
                 }
@@ -105,7 +107,7 @@ void calc_route2(){
             }else if(t<=T[3]){
                 x=xt+(C[2][0]-C[1][0])/T[3]*(t-T[2]);
                 y=yt+(C[2][1]-C[1][1])/T[3]*(t-T[2]);
-                if(t==T[3]){
+                if(fabs(t-T[3])<dt){
                     xt=x;
                     yt=y;
                 }
@@ -114,7 +116,7 @@ void calc_route2(){
             }else if(t<=T[2]+T[3]){
                 x=xt+0.5*(C[2][0]-C[1][0])/T[3]*(T[2]-(T[3]+T[2]-t)*(T[3]+T[2]-t)/T[2]);
                 y=yt+0.5*(C[2][1]-C[1][1])/T[3]*(T[2]-(T[3]+T[2]-t)*(T[3]+T[2]-t)/T[2]);
-                if(t==T[2]+T[3]){
+                if(fabs(t-T[2]-T[3])<dt){
                     xt=x;
                     yt=y;
                 }
@@ -126,22 +128,25 @@ void calc_route2(){
             if(t<=T[4]){
                 x=C[2][0]+(C[3][0]-C[2][0])/T[4]/T[5]/2*t*t;
                 y=C[2][1]+(C[3][1]-C[2][1])/T[4]/T[5]/2*t*t;
-                if(t==T[4]){
+                if(fabs(t-T[4])<dt){
                     xt=x;
                     yt=y;
+                    cout<<t<<" "<<xt<<" "<<yt<<endl;
                 }
-
+                cout<<t<<" "<<T[4]<<" "<<xt<<" "<<yt<<endl;
             //第2コーナー~ゴール定速
             }else if(t<=T[5]){
                 x=xt+(C[3][0]-C[2][0])/T[5]*(t-T[4]);
                 y=yt+(C[3][1]-C[2][1])/T[5]*(t-T[4]);
-                if(t==T[5]){
+                cout<<t<<" "<<xt<<" "<<yt<<endl;
+                if(fabs(t-T[5])<dt){
                     xt=x;
                     yt=y;
                 }
 
             //第2コーナー~ゴール減速
             }else if(t<=T[4]+T[5]){
+                flg=1;
                 x=xt+0.5*(C[3][0]-C[2][0])/T[5]*(T[4]-(T[5]+T[4]-t)*(T[5]+T[4]-t)/T[4]);
                 y=yt+0.5*(C[3][1]-C[2][1])/T[5]*(T[4]-(T[5]+T[4]-t)*(T[5]+T[4]-t)/T[4]);
                 if(t==T[4]+T[5]){
@@ -152,6 +157,7 @@ void calc_route2(){
         }
         
         t=(double)i*dt;
+        //if(flg==1)cout<<t<<" "<<xt<<" "<<yt<<endl;
 
         //モータ角計算
         d1=(double)dir1*(M_PI-atan2(y,x)+acos((L1*L1-L2*L2+x*x+y*y)/(2*L1*sqrt(x*x+y*y))))*180/M_PI;
