@@ -131,9 +131,7 @@ void calc_route2(){
                 if(fabs(t-T[4])<dt){
                     xt=x;
                     yt=y;
-                    cout<<t<<" "<<xt<<" "<<yt<<endl;
                 }
-                cout<<t<<" "<<T[4]<<" "<<xt<<" "<<yt<<endl;
             //第2コーナー~ゴール定速
             }else if(t<=T[5]){
                 x=xt+(C[3][0]-C[2][0])/T[5]*(t-T[4]);
